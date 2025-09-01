@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      target: ${ENV}
+    image: go-docker
+    container_name: go-docker-app
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+      - ./data:/data
+    restart: unless-stopped
