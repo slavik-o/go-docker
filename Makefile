@@ -6,7 +6,11 @@ up:
 
 .PHONY: start
 start:
-	docker compose up --build --force-recreate
+	docker compose up --build --force-recreate -d
+
+.PHONY: exec
+exec:
+	docker compose exec app sh
 
 .PHONY: logs
 logs:
